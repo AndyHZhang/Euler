@@ -1,25 +1,24 @@
 package com.andy.euler;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 
 public class Euler028 {
 	public static void run() {
-		System.out.println("Euler028 begin " + System.currentTimeMillis());
+		System.out.println("Euler027 begin " + System.currentTimeMillis());
 
-		ArrayList<BigInteger> mBuffer = new ArrayList<BigInteger> ();
-		for (int a = 2; a <= 100; a++) {
-			BigInteger A = new BigInteger(Integer.toString(a));
-			BigInteger c = new BigInteger(Integer.toString(a));
-			for (int b = 2; b <= 100; b++) {
-				c = c.multiply(A);
-				if (!mBuffer.contains(c)) {
-					mBuffer.add(c);
-				}
-			}
+		int count1 = 0;
+		for (int i = 3; i <= 1001; i += 2) {
+			count1 += i * i;
 		}
-		System.out.println(mBuffer.size());
 
-		System.out.println("Euler028 end " + System.currentTimeMillis());
+		int count2 = 0;
+		for (int i = 2; i <= 1000; i += 2) {
+			count2 += i;
+		}
+
+		int count = 1 + count1 * 4 - count2 * 6;
+		System.out.println(count);
+
+		System.out.println("Euler027 end " + System.currentTimeMillis());
 	}
 }
